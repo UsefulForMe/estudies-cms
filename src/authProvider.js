@@ -1,6 +1,8 @@
+const config = require("./config");
+
 const authProvider = {
   login: ({ username, password }) => {
-    const request = new Request("http://35.197.157.67:8082/auth/login", {
+    const request = new Request(`${config.backend_url}/auth/login/admin`, {
       method: "POST",
       body: JSON.stringify({ email: username, password }),
       headers: new Headers({ "Content-Type": "application/json" }),
@@ -13,32 +15,45 @@ const authProvider = {
         return response.json();
       })
       .then((auth) => {
-        localStorage.setItem("auth", JSON.stringify(auth));
+        const token = auth.data.access_token;
+        localStorage.setItem("auth", token);
+        return Promise.resolve();
       })
       .catch(() => {
         throw new Error("Network error");
       });
   },
   logout: () => {
-    localStorage.removeItem("username");
+    localStorage.removeItem("auth");
     return Promise.resolve();
   },
   checkAuth: () =>
-    localStorage.getItem("username") ? Promise.resolve() : Promise.reject(),
+    localStorage.getItem("auth")
+      ? Promise.resolve()
+      : Promise.reject({ message: "login.required" }),
   checkError: (error) => {
     const status = error.status;
     if (status === 401 || status === 403) {
-      localStorage.removeItem("username");
-      return Promise.reject();
+      localStorage.removeItem("auth");
+      return Promise.reject({ message: false });
     }
-    // other error code (404, 500, etc): no need to log out
     return Promise.resolve();
   },
-  getIdentity: () =>
-    Promise.resolve({
-      id: "user",
-      fullName: "John Doe",
-    }),
+  getIdentity: async () => {
+    try {
+      const data = await fetch(`${config.backend_url}/admin/me`, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("auth")}`,
+        },
+      });
+      const auth = await data.json();
+
+      return Promise.resolve({ id: auth.id, fullName: auth.name });
+    } catch (error) {
+      return Promise.reject(error);
+    }
+  },
+
   getPermissions: () => Promise.resolve(""),
 };
 
