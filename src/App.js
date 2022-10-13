@@ -1,11 +1,13 @@
 import {
-  CastForEducation, Feedback, People,
+  CastForEducation,
+  Feedback,
+  People,
   Person,
   PictureAsPdf,
   Quiz,
   School,
   Stars,
-  Subject
+  Subject,
 } from "@mui/icons-material";
 import simpleRestProvider from "ra-data-simple-rest";
 import { Admin, fetchUtils, ListGuesser, Resource } from "react-admin";
@@ -35,6 +37,7 @@ import { CustomShow as ResourceShow } from "./resource/show";
 import { CustomCreate as MarkCreate } from "./mark/create";
 import { CustomEdit as MarkEdit } from "./mark/edit";
 import { CustomShow as MarkShow } from "./mark/show";
+import { CustomList as StudentList } from "./student/list";
 
 const httpClient = async (url, options = {}) => {
   if (!options.headers) {
@@ -55,7 +58,7 @@ function App() {
     >
       <Resource
         name="student"
-        list={ListGuesser}
+        list={StudentList}
         icon={Person}
         show={StudentShow}
         edit={StudentEdit}
