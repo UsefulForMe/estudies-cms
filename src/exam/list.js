@@ -1,24 +1,29 @@
 import {
+  CreateButton,
   Datagrid,
   DateField,
   ExportButton,
   FilterButton,
-  List, TextField,
+  List,
+  NumberField,
+  NumberInput,
+  TextField,
   TextInput,
-  TopToolbar
+  TopToolbar,
 } from "react-admin";
 
 const ListActions = () => (
   <TopToolbar>
     <FilterButton />
+    <CreateButton />
     <ExportButton />
-    {/* Add your custom actions */}
   </TopToolbar>
 );
 
 const postFilters = [
   <TextInput source="name" alwaysOn />,
-  <TextInput source="address" />,
+  <TextInput source="type" />,
+  <NumberInput source="factor" />,
 ];
 
 export const CustomList = () => (
@@ -26,8 +31,10 @@ export const CustomList = () => (
     <Datagrid>
       <TextField source="id" />
       <TextField source="name" />
-      <TextField source="address" />
-      <DateField source="birthday" />
+      <NumberField source="duration" />
+      <TextField source="type" />
+      <NumberField source="factor" />
+      <TextField source="subjectClass" sortBy="subjectClass.name" />
       <DateField source="createdAt" />
       <DateField source="updatedAt" />
     </Datagrid>

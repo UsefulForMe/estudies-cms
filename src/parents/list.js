@@ -3,9 +3,10 @@ import {
   DateField,
   ExportButton,
   FilterButton,
-  List, TextField,
+  List,
+  TextField,
   TextInput,
-  TopToolbar
+  TopToolbar,
 } from "react-admin";
 
 const ListActions = () => (
@@ -27,7 +28,6 @@ export const CustomList = () => (
       <TextField source="id" />
       <TextField source="name" />
       <TextField source="address" />
-      <DateField source="birthday" />
       <DateField source="createdAt" />
       <DateField source="updatedAt" />
     </Datagrid>

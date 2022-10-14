@@ -10,7 +10,7 @@ import {
   Subject,
 } from "@mui/icons-material";
 import simpleRestProvider from "ra-data-simple-rest";
-import { Admin, fetchUtils, ListGuesser, Resource } from "react-admin";
+import { Admin, fetchUtils, Resource } from "react-admin";
 import "./App.css";
 import authProvider from "./authProvider";
 import config from "./config";
@@ -34,10 +34,18 @@ import { CustomCreate as ResourceCreate } from "./resource/create";
 import { CustomEdit as ResourceEdit } from "./resource/edit";
 import { CustomShow as ResourceShow } from "./resource/show";
 
+import { CustomList as ExamList } from "./exam/list";
+import { CustomList as FeedbackList } from "./feedback/list";
 import { CustomCreate as MarkCreate } from "./mark/create";
 import { CustomEdit as MarkEdit } from "./mark/edit";
+import { CustomList as MarkList } from "./mark/list";
 import { CustomShow as MarkShow } from "./mark/show";
+import { CustomList as ParentsList } from "./parents/list";
+import { CustomList as ResourceList } from "./resource/list";
 import { CustomList as StudentList } from "./student/list";
+import { CustomList as SubjectClassList } from "./subject-class/list";
+import { CustomList as SubjectList } from "./subject/list";
+import { CustomList as TeacherList } from "./teacher/list";
 
 const httpClient = async (url, options = {}) => {
   if (!options.headers) {
@@ -65,14 +73,14 @@ function App() {
       />
       <Resource
         name="teacher"
-        list={ListGuesser}
+        list={TeacherList}
         icon={CastForEducation}
         show={TeacherShow}
         edit={TeacherEdit}
       />
       <Resource
         name="parents"
-        list={ListGuesser}
+        list={ParentsList}
         icon={People}
         show={ParentShow}
         edit={ParentEdit}
@@ -80,7 +88,7 @@ function App() {
 
       <Resource
         name="subject"
-        list={ListGuesser}
+        list={SubjectList}
         icon={Subject}
         create={SubjectCreate}
         show={SubjectShow}
@@ -88,7 +96,7 @@ function App() {
       />
       <Resource
         name="subject-class"
-        list={ListGuesser}
+        list={SubjectClassList}
         icon={School}
         show={SubjectClassShow}
         edit={SubjectClassEdit}
@@ -96,7 +104,7 @@ function App() {
       />
       <Resource
         name="resource"
-        list={ListGuesser}
+        list={ResourceList}
         icon={PictureAsPdf}
         show={ResourceShow}
         edit={ResourceEdit}
@@ -104,7 +112,7 @@ function App() {
       />
       <Resource
         name="exam"
-        list={ListGuesser}
+        list={ExamList}
         icon={Quiz}
         show={ExamShow}
         edit={ExamEdit}
@@ -112,13 +120,13 @@ function App() {
       />
       <Resource
         name="mark"
-        list={ListGuesser}
+        list={MarkList}
         icon={Stars}
         show={MarkShow}
         edit={MarkEdit}
         create={MarkCreate}
       />
-      <Resource name="feedback" list={ListGuesser} icon={Feedback} />
+      <Resource name="feedback" list={FeedbackList} icon={Feedback} />
     </Admin>
   );
 }

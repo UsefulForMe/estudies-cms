@@ -3,9 +3,10 @@ import {
   DateField,
   ExportButton,
   FilterButton,
-  List, TextField,
+  List,
+  TextField,
   TextInput,
-  TopToolbar
+  TopToolbar,
 } from "react-admin";
 
 const ListActions = () => (
@@ -17,19 +18,17 @@ const ListActions = () => (
 );
 
 const postFilters = [
-  <TextInput source="name" alwaysOn />,
-  <TextInput source="address" />,
+  <TextInput source="message" alwaysOn />,
+  <TextInput source="user" />,
 ];
 
 export const CustomList = () => (
   <List actions={<ListActions />} filters={postFilters}>
     <Datagrid>
       <TextField source="id" />
-      <TextField source="name" />
-      <TextField source="address" />
-      <DateField source="birthday" />
-      <DateField source="createdAt" />
-      <DateField source="updatedAt" />
+      <TextField source="message" />
+      <TextField source="user" sortBy="user.email" />
+      <DateField source="time" />
     </Datagrid>
   </List>
 );
