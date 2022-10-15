@@ -28,7 +28,7 @@ export const CustomShow = () => {
         <TextField source="name" />
         <TextField source="address" />
         <ArrayField source="student" label="Children">
-          <Datagrid>
+          <Datagrid rowClick="edit">
             <TextField source="id" />
             <TextField source="name" />
             <TextField source="address" />

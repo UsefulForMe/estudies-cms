@@ -36,7 +36,7 @@ export const CustomShow = () => {
         <DateField source="endAt" />
 
         <ArrayField source="students" label="Student">
-          <Datagrid>
+          <Datagrid rowClick="edit">
             <TextField source="id" />
             <TextField source="name" />
             <TextField source="address" />

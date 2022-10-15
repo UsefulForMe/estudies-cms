@@ -29,7 +29,7 @@ const postFilters = [
 
 export const CustomList = () => (
   <List actions={<ListActions />} filters={postFilters}>
-    <Datagrid>
+    <Datagrid rowClick="edit">
       <TextField source="id" />
       <TextField source="exam" sortBy="exam.name" />
       <TextField source="student" sortBy="student.name" />
