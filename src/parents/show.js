@@ -27,11 +27,13 @@ export const CustomShow = () => {
         <TextField source="id" />
         <TextField source="name" />
         <TextField source="address" />
+        <TextField source="phone" />
         <ArrayField source="student" label="Children">
           <Datagrid rowClick="edit">
             <TextField source="id" />
             <TextField source="name" />
             <TextField source="address" />
+            <TextField source="phone" />
             <DateField source="birthday" />
           </Datagrid>
         </ArrayField>

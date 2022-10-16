@@ -15,6 +15,7 @@ export const CustomEdit = () => {
         <TextInput disabled label="Id" source="id" />
         <TextInput source="name" validate={required()} />
         <TextInput source="address" validate={required()} />
+        <TextInput source="phone" validate={required()} />
       </SimpleForm>
     </Edit>
   );

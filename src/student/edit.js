@@ -25,6 +25,8 @@ export const CustomEdit = () => {
         <TextInput disabled label="Id" source="id" />
         <TextInput source="name" validate={required()} />
         <TextInput source="address" validate={required()} />
+        <TextInput source="phone" validate={required()} />
+
         <DateInput source="birthday" validate={required()} />
         <ReferenceInput source="parentsId" reference="parents">
           <AutocompleteInput optionValue="id" optionText="name" />

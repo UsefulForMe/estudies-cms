@@ -26,6 +26,7 @@ export const CustomShow = () => {
         <TextField source="id" />
         <TextField source="name" />
         <TextField source="address" />
+        <TextField source="phone" />
         <DateField source="birthday" />
         <ReferenceField source="parentsId" reference="parents">
           <TextField source="name" />

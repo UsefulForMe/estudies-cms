@@ -3,7 +3,7 @@ import {
   Show,
   SimpleShowLayout,
   TextField,
-  useShowController
+  useShowController,
 } from "react-admin";
 
 export const CustomShow = () => {
@@ -24,6 +24,7 @@ export const CustomShow = () => {
         <TextField source="id" />
         <TextField source="name" />
         <TextField source="address" />
+        <TextField source="phone" />
       </SimpleShowLayout>
     </Show>
   );
