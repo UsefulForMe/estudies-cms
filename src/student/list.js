@@ -28,6 +28,8 @@ export const CustomList = () => (
       <TextField source="id" />
       <TextField source="name" />
       <TextField source="address" />
+      <TextField source="phone" />
+
       <DateField source="birthday" />
       <DateField source="createdAt" />
       <DateField source="updatedAt" />

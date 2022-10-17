@@ -10,11 +10,9 @@ import {
 
 export const CustomEdit = () => {
   const transform = (data) => {
-    const { teacherId, startAt, endAt } = data;
+    const { score } = data;
     return {
-      teacherId,
-      startAt: new Date(startAt),
-      endAt: new Date(endAt),
+      score,
     };
   };
   return (

@@ -11,12 +11,13 @@ import {
 
 export const CustomEdit = () => {
   const transform = (data) => {
-    const { name, address, birthday, parentsId } = data;
+    const { name, address, birthday, parentsId, phone } = data;
     return {
       name,
       address,
-      birthday,
+      birthday: new Date(birthday),
       parentsId,
+      phone,
     };
   };
   return (

@@ -3,11 +3,9 @@ import { Edit, required, SimpleForm, TextInput } from "react-admin";
 
 export const CustomEdit = () => {
   const transform = (data) => {
-    const { name, address, birthday } = data;
+    const { name } = data;
     return {
       name,
-      address,
-      birthday,
     };
   };
   return (
